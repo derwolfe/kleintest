@@ -3,6 +3,8 @@ from klein import run, route
 
 @route('/static/', branch=True)
 def static(request):
-    return File("./staticfile.txt")
+    file = File("./staticfile.txt")
+    file.isLeaf = True
+    return file
 
 run('localhost', 8080)
